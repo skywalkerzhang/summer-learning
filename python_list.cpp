@@ -4,22 +4,21 @@
 using namespace std;
 template <class T>
 class MyList{
-    public:
-        int size = 0;
-    int initial_length = 16;
-    T* arr = new T[initial_length];
+    int size = 0;
+    int capacity = 16;
+    T* arr = new T[capacity];
     public:
         void append(T val){
-            if (size > initial_length - 1) {
+            if (size > capacity - 1) {
                 // 需要扩容了
                 resize();
             }
             arr[size ++] = val;
         }
         void resize(){
-            initial_length *= 2;
+            capacity *= 2;
             T* new_arr;
-            new_arr = new T[initial_length];
+            new_arr = new T[capacity];
             // 最后是要复制的字节数
             memcpy(new_arr, arr, size * sizeof(T));
             // delete[] rg -- 用来释放rg指向的内存，！！还逐一调用数组中每个对象的 destructor！！
@@ -43,7 +42,7 @@ class MyList{
                     cout << "ERROR: we do not support the idx > size" << endl;
                     throw 99;
                 }
-                if (size > initial_length - 1) {
+                if (size > capacity - 1) {
                     resize();
                 }
                 for (int i = size; i > idx; i --) {
