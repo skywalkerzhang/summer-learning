@@ -18,6 +18,7 @@ int main() {
     }
     // 1; 1 1; 1 2 1; 1 3 3 1;
     for (int i = 3; i <= n; i ++) {
+        a[i][0] = 0;
         for (int j = 1; j <= i; j ++) {
             a[i][j] = a[i - 1][j] + a[i - 1][j - 1];
         }
