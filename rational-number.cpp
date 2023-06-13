@@ -33,10 +33,15 @@ int getLCM(int x, int y, int gcd) {
     return x * y / gcd;
 }
 
+// 解藕
+// int getLCM(int x, int y, int gcd) { return x * y / gcd; }
+// int getLCM(int x, int y) { return getLCM(x, y, getGCD(x, y)); }
+
 class RationalNumber {
     public:
         int numerator;
         int denominator;
+        
     RationalNumber () {
 
     }
