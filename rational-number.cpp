@@ -27,10 +27,10 @@ int getGCD(int x, int y) {
     return -1;
 }
 int getLCM(int x, int y) {
-    return (x < y ? x : y) * getGCD(x, y);
+    return x * y / getGCD(x, y);
 }
 int getLCM(int x, int y, int gcd) {
-    return (x < y ? x : y) * gcd;
+    return x * y * gcd;
 }
 
 class RationalNumber {
