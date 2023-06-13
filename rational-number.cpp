@@ -63,7 +63,7 @@ class RationalNumber {
         x.numerator /= gcd;
         return x;
     }
-    RationalNumber* simplify() {
+    RationalNumber simplify() {
         if (this -> numerator < 0 && this -> denominator < 0 || this -> numerator > 0 && this -> denominator < 0) {
             this -> numerator *= -1;
             this -> denominator *= -1;
@@ -71,7 +71,10 @@ class RationalNumber {
         int gcd = getGCD(this -> numerator, this -> denominator);
         this -> denominator /= gcd;
         this -> numerator /= gcd;
-        return this;
+        // 反向操作
+        // int a = 5, int *p = &a; 这里*表示一级指针
+        // *this这里*表示解引用
+        return *this;
     }
     RationalNumber operator+ (RationalNumber y) {
         RationalNumber res;
@@ -98,14 +101,14 @@ class RationalNumber {
         return simplify(res);
     }
     double getPoint(){
-        return double(this -> numerator / this -> denominator); 
+        return (double)this -> numerator / this -> denominator; 
     }
     void print() {
-        RationalNumber* res = simplify();
-        if (res -> denominator == 1) {
-            cout << res -> numerator << endl;
+        RationalNumber res = simplify();
+        if (res.denominator == 1) {
+            cout << res.numerator << endl;
         } else {
-            cout << res -> numerator << " / " << res -> denominator << endl;
+            cout << res.numerator << " / " << res.denominator << endl;
         }
     }
 };
