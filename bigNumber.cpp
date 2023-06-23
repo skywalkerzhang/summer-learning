@@ -72,7 +72,15 @@ class BigNumber {
                 }
                 res += (char)(cur + '0');
             }
+            // 消除前导0
             reverse(res.begin(), res.end());
+            int zeroIdx = 0;
+            while(zeroIdx < res.size() && res[zeroIdx ++] != '0');
+            if (zeroIdx == res.size()) {
+                res = "0";
+            } else {
+                res = res.substr(zeroIdx, res.size());
+            }
             return (isSwap ? "-" : "") + res; 
         }
 
