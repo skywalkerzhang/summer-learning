@@ -51,7 +51,7 @@ class BigNumber {
             int pre = 0, cur = 0;
             bool isSwap = false;
             // 比长度比大小，把大的放在前面
-            if (lengthA < lengthB || (lengthA == lengthB) && a > b) {
+            if (lengthA < lengthB || (lengthA == lengthB) && a < b) {
                 swap(lengthA, lengthB);
                 swap(a, b);
                 isSwap = true;
